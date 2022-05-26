@@ -7,7 +7,7 @@ const trimText = (text) => {
     // 단어 이어붙이는 경우
     .replace(/\-\r\n+/g, '')
     // 문단 시작인 경우 개행시킴
-    .replace(/.\r\n([A-Z])/g, '\n$1')
+    .replace(/\.\r\n([A-Z])/g, '\n$1')
     // 보통 개행 문자
     .replace(/\r\n+/g, ' ')
 }
@@ -23,8 +23,6 @@ const writeFile = (path, data) => {
 
 const excute = () => {
   const text = readFile('./data/input.txt')
-  // console.log(text)
-  console.log(trimText(text))
   writeFile('./data/output.txt', trimText(text))
 }
 
